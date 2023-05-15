@@ -42,7 +42,7 @@ function Note(props) {
             style={{
                 opacity: isCompleted ? '0.6' : null,
             }}
-            className="relative bg-white py-2.5 px-4 shadow-inner rounded-sm"
+            className="relative bg-white py-2.5 px-4 shadow-inner rounded-sm overflow-hidden"
         >
             <input
                 key={props.id}
