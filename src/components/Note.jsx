@@ -49,7 +49,7 @@ function Note(props) {
                 name="title"
                 value={props.editNote[props.id].title}
                 onChange={handleChange}
-                className="text-1xl font-bold mb-1.5 outline-none border-none bg-transparent overflow-hidden w-full"
+                className="text-1xl mb-1.5 outline-none border-none bg-transparent overflow-hidden break-words break-all font-medium"
                 disabled={!isEditing}
             ></input>
             <textarea
