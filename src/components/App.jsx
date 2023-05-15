@@ -6,7 +6,6 @@ import CreateArea from './CreateArea';
 
 
 function App() {
-  
 
   const notesFromLocalStorage = JSON.parse(localStorage.getItem('notes') || '[]')
 
