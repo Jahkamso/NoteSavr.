@@ -12,8 +12,6 @@ function Note(props) {
     const [editNoteId, setEditNoteId] = useState(false)
     const [editTitle, setEditTitle] = useState(props.title)
     const [editContent, setEditContent] = useState(props.content)
-
-    
     
 
     function todoCompleted() {
@@ -63,7 +61,7 @@ function Note(props) {
             className="relative pt-5 bg-white pb-2.5 px-5 shadow-inner rounded-sm overflow-hidden mobile:px-7"
         >
             {editNoteId ? (
-                <input onChange={handleEdit} value={editTitle}></input>
+                <input onChange={handleEdit} value={editTitle} className='border-none outline-none'></input>
             ) : (
                 <h1
                     style={{
@@ -81,6 +79,7 @@ function Note(props) {
                 <textarea
                     onChange={handleContent}
                     value={editContent}
+                    className='border-none outline-none resize-none'
                 ></textarea>
             ) : (
                 <p
