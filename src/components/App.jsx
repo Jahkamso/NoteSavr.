@@ -33,7 +33,7 @@ function App() {
         <>
             <Heading />
             <CreateArea onAdd={addNote} />
-            <section className="relative grid gap-8 place-content-center py-6 px-2.5 mb-4 tablet:grid-cols-notes-grid  laptop:mx-auto desktop:ml-auto mr-auto mobile:grid-cols-1 mx-2">
+            <section className="relative grid gap-8 place-content-center py-6 px-2.5 mb-4 tablet:grid-cols-notes-grid  laptop:mx-auto desktop:ml-auto mr-auto mobile:grid-cols-1 mx-2 mb-4">
                 {notes.map((noteItem, index) => {
                     return (
                         <div>
