@@ -2,8 +2,6 @@ import React, { useRef, useState } from 'react'
 import { MdDelete, MdSettingsRemote } from 'react-icons/md'
 import { AiOutlineEdit, AiFillEdit } from 'react-icons/ai'
 import {
-    BsPatchCheck,
-    BsPatchCheckFill,
     BsBookmarkCheck,
     BsBookmarkCheckFill,
 } from 'react-icons/bs'
