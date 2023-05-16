@@ -1,7 +1,12 @@
 import React, { useRef, useState } from 'react'
 import { MdDelete, MdSettingsRemote } from 'react-icons/md'
 import { AiFillEdit } from 'react-icons/ai'
-import { BsPatchCheck, BsPatchCheckFill, BsFillSaveFill } from 'react-icons/bs'
+import {
+    BsPatchCheck,
+    BsPatchCheckFill,
+    BsFileEarmarkCheck,
+    BsFileEarmarkCheckFill,
+} from 'react-icons/bs'
 
 function Note(props) {
     const [isCompleted, setIsCompleted] = useState(false)
@@ -44,20 +49,20 @@ function Note(props) {
             </p>
             <button onClick={todoCompleted}>
                 {isCompleted ? (
-                    <BsPatchCheckFill className="absolute top-2 right-1 text-base cursor-pointer text-header-color mobile:right-2" />
+                    <BsFileEarmarkCheckFill className="absolute top-2 right-1 text-base cursor-pointer text-header-color mobile:right-2" />
                 ) : (
-                    <BsPatchCheck className="absolute top-2 right-1 text-base cursor-pointer mobile:right-2" />
+                    <BsFileEarmarkCheck className="absolute top-2 right-1 text-base cursor-pointer mobile:right-2" />
                 )}
             </button>
             <div className="flex justify-end items-center gap-2">
                 <button>
-                    <AiFillEdit className="text-xl" />
+                    <AiFillEdit className="text-lg" />
                 </button>
                 <button
                     className=" bottom-1 text-sm text-red-500"
                     onClick={handleClick}
                 >
-                    <MdDelete className="text-xl" />
+                    <MdDelete className="text-lg" />
                 </button>
             </div>
         </div>
