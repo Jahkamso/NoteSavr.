@@ -44,7 +44,7 @@ function Note(props) {
             </p>
             <button onClick={todoCompleted}>
                 {isCompleted ? (
-                    <BsPatchCheckFill className="absolute top-2 right-1 text-base cursor-pointer text-header-color" />
+                    <BsPatchCheckFill className="absolute top-2 right-1 text-base cursor-pointer text-header-color mobile:right-2" />
                 ) : (
                     <BsPatchCheck className="absolute top-2 right-1 text-base cursor-pointer mobile:right-2" />
                 )}
