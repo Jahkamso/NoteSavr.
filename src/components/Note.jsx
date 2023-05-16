@@ -38,7 +38,7 @@ function Note(props) {
                 }}
                 key={props.id}
                 name="content"
-                className="text-1xl mb-0 whitespace-pre-wrap break-words pb-1 resize-none outline-none border-none w-full bg-transparent"
+                className="text-1xl mb-0 break-words pb-1 resize-none outline-none border-none w-full bg-transparent"
             >
                 {props.content}
             </p>
