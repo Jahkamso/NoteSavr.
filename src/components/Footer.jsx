@@ -6,10 +6,8 @@ const currentYear = new Date().getFullYear();
 
 function Footer() {
     return (
-        <footer className="relative text-center">
-            <p className="text-p-color bottom-0 w-full">
-                Copyright © {currentYear}
-            </p>
+        <footer className="inherit bottom-0 w-full text-center">
+            <p className="text-p-color mt-6 mb-2">Copyright © {currentYear}</p>
         </footer>
     )
 }
