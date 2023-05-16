@@ -1,11 +1,11 @@
 import React, { useRef, useState } from 'react'
 import { MdDelete, MdSettingsRemote } from 'react-icons/md'
-import { AiFillEdit } from 'react-icons/ai'
+import { AiOutlineEdit, AiFillEdit } from 'react-icons/ai'
 import {
     BsPatchCheck,
     BsPatchCheckFill,
-    BsFileEarmarkCheck,
-    BsFileEarmarkCheckFill,
+    BsBookmarkCheck,
+    BsBookmarkCheckFill,
 } from 'react-icons/bs'
 
 function Note(props) {
@@ -25,7 +25,7 @@ function Note(props) {
             style={{
                 opacity: isCompleted ? '0.6' : null,
             }}
-            className="relative bg-white py-2.5 px-5 shadow-inner rounded-sm overflow-hidden mobile:px-7"
+            className="relative pt-5 bg-white pb-2.5 px-5 shadow-inner rounded-sm overflow-hidden mobile:px-7"
         >
             <h1
                 style={{
@@ -49,20 +49,20 @@ function Note(props) {
             </p>
             <button onClick={todoCompleted}>
                 {isCompleted ? (
-                    <BsFileEarmarkCheckFill className="absolute top-2 right-1 text-base cursor-pointer text-header-color mobile:right-2" />
+                    <BsBookmarkCheckFill className="absolute top-3 right-1 text-base cursor-pointer text-header-color mobile:right-2" />
                 ) : (
-                    <BsFileEarmarkCheck className="absolute top-2 right-1 text-base cursor-pointer mobile:right-2" />
+                    <BsBookmarkCheck className="absolute top-3 right-1 text-base cursor-pointer mobile:right-2" />
                 )}
             </button>
             <div className="flex justify-end items-center gap-2">
                 <button>
-                    <AiFillEdit className="text-lg" />
+                    <AiOutlineEdit className="text-lg" />
                 </button>
                 <button
                     className=" bottom-1 text-sm text-red-500"
                     onClick={handleClick}
                 >
-                    <MdDelete className="text-lg" />
+                    <MdDelete className="text-lg text-delete-color" />
                 </button>
             </div>
         </div>

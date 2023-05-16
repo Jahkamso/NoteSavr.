@@ -17,9 +17,10 @@ export default {
             McLaren: ['McLaren', 'cursive'],
         },
         colors: {
+            'delete-color': '#E96479',
             white: '#fff',
             'dark-white': '#eee',
-            'header-color': '#088395',
+            'header-color': '#159895', // #088395
             'p-color': '#ccc',
         },
         extend: {
