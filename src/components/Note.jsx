@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { MdDelete, MdSettingsRemote } from 'react-icons/md'
 import { AiOutlineEdit, AiFillEdit } from 'react-icons/ai'
 import {
@@ -7,7 +7,14 @@ import {
 } from 'react-icons/bs'
 
 function Note(props) {
+
     const [isCompleted, setIsCompleted] = useState(false)
+    const [editNoteId, setEditNoteId] = useState(false)
+    const [editTitle, setEditTitle] = useState(props.title)
+    const [editContent, setEditContent] = useState(props.content)
+
+    
+    
 
     function todoCompleted() {
         setIsCompleted(!isCompleted)
@@ -18,6 +25,36 @@ function Note(props) {
         setIsCompleted(false)
     }
 
+    function handleEdit(event) {
+        setEditTitle(event.target.value)
+    }
+
+    function handleContent(event) {
+        setEditContent(event.target.value)
+    }
+
+    function editNote(id) {
+        if (editNoteId) {
+            let notesFromLocalStorage = JSON.parse(
+                localStorage.getItem('notes') || '[]'
+            )
+
+        notesFromLocalStorage = notesFromLocalStorage.map((note, index) => {
+            if (index === props.id) {
+                return {
+                    title: editTitle,
+                    content: editContent,
+                }
+            }
+            return note
+        })
+            localStorage.setItem('notes', JSON.stringify(notesFromLocalStorage))
+            console.log(notesFromLocalStorage);
+        }
+
+        !editNoteId ? setEditNoteId(true) : setEditNoteId(false)
+    }
+
     return (
         <div
             style={{
@@ -25,26 +62,39 @@ function Note(props) {
             }}
             className="relative pt-5 bg-white pb-2.5 px-5 shadow-inner rounded-sm overflow-hidden mobile:px-7"
         >
-            <h1
-                style={{
-                    textDecoration: isCompleted ? 'line-through' : 'none',
-                }}
-                key={props.id}
-                name="title"
-                className="text-1xl mb-2 bg-transparent overflow-hidden break-words break-all font-medium"
-            >
-                {props.title}
-            </h1>
-            <p
-                style={{
-                    textDecoration: isCompleted ? 'line-through' : 'none',
-                }}
-                key={props.id}
-                name="content"
-                className="text-1xl mb-0 break-words pb-1 resize-none outline-none border-none w-full bg-transparent"
-            >
-                {props.content}
-            </p>
+            {editNoteId ? (
+                <input onChange={handleEdit} value={editTitle}></input>
+            ) : (
+                <h1
+                    style={{
+                        textDecoration: isCompleted ? 'line-through' : 'none',
+                        display: editNoteId ? 'none' : 'flex',
+                    }}
+                    name="title"
+                    className="text-1xl mb-2 bg-transparent overflow-hidden break-words break-all font-medium"
+                >
+                    {editTitle}
+                </h1>
+            )}
+
+            {editNoteId ? (
+                <textarea
+                    onChange={handleContent}
+                    value={editContent}
+                ></textarea>
+            ) : (
+                <p
+                    style={{
+                        textDecoration: isCompleted ? 'line-through' : 'none',
+                        display: editNoteId ? 'none' : 'flex',
+                    }}
+                    name="content"
+                    className="text-1xl mb-0 break-words break-all pb-1 resize-none outline-none border-none w-full bg-transparent"
+                >
+                    {editContent}
+                </p>
+            )}
+
             <button onClick={todoCompleted}>
                 {isCompleted ? (
                     <BsBookmarkCheckFill className="absolute top-3 right-1 text-base cursor-pointer text-header-color mobile:right-2" />
@@ -53,7 +103,7 @@ function Note(props) {
                 )}
             </button>
             <div className="flex justify-end items-center gap-2">
-                <button>
+                <button onClick={editNote}>
                     <AiOutlineEdit className="text-lg" />
                 </button>
                 <button

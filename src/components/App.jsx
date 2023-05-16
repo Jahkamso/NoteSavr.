@@ -5,11 +5,12 @@ import Note from './Note'
 import CreateArea from './CreateArea'
 
 function App() {
-    const notesFromLocalStorage = JSON.parse(
+  const notesFromLocalStorage = JSON.parse(
+      
         localStorage.getItem('notes') || '[]'
     )
 
-    const [notes, setNotes] = useState(notesFromLocalStorage)
+  const [notes, setNotes] = useState(notesFromLocalStorage)
 
     useEffect(() => {
         localStorage.setItem('notes', JSON.stringify(notes))
@@ -28,6 +29,8 @@ function App() {
             })
         })
     }
+  
+  
 
     return (
         <>
@@ -36,13 +39,15 @@ function App() {
             <section className="relative grid gap-8 place-content-center py-6 px-2.5 mb-4 tablet:grid-cols-notes-grid  laptop:mx-auto desktop:ml-auto mr-auto mobile:grid-cols-1 mx-2">
                 {notes.map((noteItem, index) => {
                     return (
-                        <div>
+                      <div key={noteItem.title +index}>
                             <Note
                                 key={index}
                                 id={index}
                                 title={noteItem.title}
                                 content={noteItem.content}
-                                onDelete={deleteNote}
+                          onDelete={deleteNote}
+                          notes={notes}
+                          setNotes={setNotes}
                             />
                         </div>
                     )
