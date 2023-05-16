@@ -25,14 +25,14 @@ function Note(props) {
             <h1
                 key={props.id}
                 name="title"
-                className="text-1xl mb-1.5 outline-none border-none bg-transparent overflow-hidden break-words break-all font-medium"
+                className="text-1xl mb-2 bg-transparent overflow-hidden break-words break-all font-medium"
             >
                 {props.title}
             </h1>
             <p
                 key={props.id}
                 name="content"
-                className="text-1xl mb-2.5 whitespace-pre-wrap break-words pb-1 resize-none outline-none border-none w-full bg-transparent"
+                className="text-1xl mb-0 whitespace-pre-wrap break-words pb-1 resize-none outline-none border-none w-full bg-transparent"
             >
                 {props.content}
             </p>
@@ -43,7 +43,7 @@ function Note(props) {
                     <BsPatchCheck className="absolute top-2 right-1 text-base cursor-pointer mobile:right-2" />
                 )}
             </button>
-            <div className="flex justify-end gap-2">
+            <div className="flex justify-end items-center gap-2">
                 <button>
                     <AiFillEdit className="text-xl" />
                 </button>
