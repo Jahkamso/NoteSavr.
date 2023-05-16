@@ -23,6 +23,9 @@ function Note(props) {
             className="relative bg-white py-2.5 px-5 shadow-inner rounded-sm overflow-hidden mobile:px-7"
         >
             <h1
+                style={{
+                    textDecoration: isCompleted ? 'line-through' : 'none',
+                }}
                 key={props.id}
                 name="title"
                 className="text-1xl mb-2 bg-transparent overflow-hidden break-words break-all font-medium"
@@ -30,6 +33,9 @@ function Note(props) {
                 {props.title}
             </h1>
             <p
+                style={{
+                    textDecoration: isCompleted ? 'line-through' : 'none',
+                }}
                 key={props.id}
                 name="content"
                 className="text-1xl mb-0 whitespace-pre-wrap break-words pb-1 resize-none outline-none border-none w-full bg-transparent"
