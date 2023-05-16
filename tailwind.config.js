@@ -24,7 +24,7 @@ export default {
         },
         extend: {
             gridTemplateColumns: {
-                'notes-grid': 'repeat(auto-fill, 240px)',
+                'notes-grid': 'repeat(auto-fill, 270px)',
             },
         },
     },

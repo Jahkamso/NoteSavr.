@@ -33,7 +33,7 @@ function CreateArea(props) {
 
     return (
         <div>
-            <form className="relative shadow-lg tablet:max-w-lg mt-8 mr-auto mb-5 ml-auto bg-white p-4 rounded-md mobile:max-w-md">
+            <form className="relative shadow-lg tablet:max-w-lg mt-8 mr-auto mb-5 ml-auto bg-white p-4 rounded-md mobile:w-11/12">
                 <input
                     className="w-full border-none p-1 outline-none text-lg resize-none"
                     name="title"
