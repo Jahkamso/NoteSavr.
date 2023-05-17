@@ -12,7 +12,9 @@ function App() {
 
   const [notes, setNotes] = useState(notesFromLocalStorage)
 
+    useEffect(() => {
         localStorage.setItem('notes', JSON.stringify(notes))
+    }, [notes])
 
     function addNote(newNote) {
         setNotes((prevNotes) => {
