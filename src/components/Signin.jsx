@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { auth, provider } from "./config";
 import { signInWithPopup } from "firebase/auth";
 import App from "./App";
+import { BsGoogle } from 'react-icons/bs'
 
 function SignIn() {
     const [value, setValue] = useState('')
@@ -24,10 +25,10 @@ function SignIn() {
             ) : (
                 <div className="flex justify-center items-center mt-80">
                     <button
-                        className="b bg-header-color px-5 py-3 text-center text-white text-lg rounded-md"
+                        className="flex items-center gap-2 b bg-header-color px-5 py-3 text-center text-white text-lg rounded-md"
                         onClick={handleClick}
                     >
-                        Google Sign-In
+                        <BsGoogle /> Sign-In
                     </button>
                 </div>
             )}

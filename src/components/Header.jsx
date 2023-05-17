@@ -1,6 +1,7 @@
 import React from "react";
 // import { GrDocumentNotes } from 'react-icons/gr';
-import { FaAffiliatetheme } from 'react-icons/fa'
+import { FaAffiliatetheme } from 'react-icons/fa';
+import { AiOutlineLogout } from 'react-icons/ai';
 
 function Heading() {
     const logout = () => {
@@ -14,7 +15,7 @@ function Heading() {
                 <FaAffiliatetheme className="text-white" />
                 NoteSavr.
             </h1>
-            <button onClick={logout} className="text-white">Logout</button>
+            <button onClick={logout} className="flex items-center gap-2 text-white"><AiOutlineLogout/>Logout</button>
         </header>
     )
 }
