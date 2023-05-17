@@ -1,7 +1,7 @@
 import React from "react";
 // import { GrDocumentNotes } from 'react-icons/gr';
 import { FaAffiliatetheme } from 'react-icons/fa';
-import { BiLogOut } from 'react-icons/bi'
+import { AiOutlineLogout } from 'react-icons/ai'
 
 function Heading() {
     const logout = () => {
@@ -19,7 +19,7 @@ function Heading() {
                 onClick={logout}
                 className="flex items-center gap-2 text-white"
             >
-                <BiLogOut className="f font-bold" />
+                <AiOutlineLogout className="f font-bold" />
                 Logout
             </button>
         </header>
