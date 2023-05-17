@@ -10,11 +10,9 @@ function App() {
         localStorage.getItem('notes') || '[]'
     )
 
-  const [notes, setNotes] = useState(notesFromLocalStorage)
-
-    useEffect(() => {
+    const [notes, setNotes] = useState(notesFromLocalStorage)
+    
         localStorage.setItem('notes', JSON.stringify(notes))
-    }, [notes])
 
     function addNote(newNote) {
         setNotes((prevNotes) => {
