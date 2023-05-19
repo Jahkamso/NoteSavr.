@@ -12,7 +12,6 @@ function Note(props) {
     const [editNoteId, setEditNoteId] = useState(false)
     const [editTitle, setEditTitle] = useState(props.title)
     const [editContent, setEditContent] = useState(props.content)
-    
 
     function todoCompleted() {
         setIsCompleted(!isCompleted)
@@ -37,17 +36,18 @@ function Note(props) {
                 localStorage.getItem('notes') || '[]'
             )
 
-        notesFromLocalStorage = notesFromLocalStorage.map((note, index) => {
-            if (index === props.id) {
-                return {
-                    title: editTitle,
-                    content: editContent,
+            notesFromLocalStorage = notesFromLocalStorage.map((note, index) => {
+                if (index === props.id) {
+                    return {
+                        title: editTitle,
+                        content: editContent,
+                        timeStamp: timeStamp,
+                    }
                 }
-            }
-            return note
-        })
+                return note
+            })
             localStorage.setItem('notes', JSON.stringify(notesFromLocalStorage))
-            console.log(notesFromLocalStorage);
+            console.log(notesFromLocalStorage)
         }
 
         !editNoteId ? setEditNoteId(true) : setEditNoteId(false)
@@ -61,7 +61,11 @@ function Note(props) {
             className="relative pt-5 bg-white pb-2.5 px-5 shadow-inner rounded-sm overflow-hidden mobile:px-7"
         >
             {editNoteId ? (
-                <input onChange={handleEdit} value={editTitle} className='border-none outline-none'></input>
+                <input
+                    onChange={handleEdit}
+                    value={editTitle}
+                    className="border-none outline-none"
+                ></input>
             ) : (
                 <h1
                     style={{
@@ -79,7 +83,7 @@ function Note(props) {
                 <textarea
                     onChange={handleContent}
                     value={editContent}
-                    className='border-none outline-none resize-none'
+                    className="border-none outline-none resize-none"
                 ></textarea>
             ) : (
                 <p
@@ -101,16 +105,19 @@ function Note(props) {
                     <BsBookmarkCheck className="absolute top-3 right-1 text-base cursor-pointer mobile:right-2" />
                 )}
             </button>
-            <div className="flex justify-end items-center gap-2">
-                <button onClick={editNote}>
-                    <AiOutlineEdit className="text-lg" />
-                </button>
-                <button
-                    className=" bottom-1 text-sm text-red-500"
-                    onClick={handleClick}
-                >
-                    <MdDelete className="text-lg text-delete-color" />
-                </button>
+            <div className="flex justify-between items-center gap-2">
+                <p className="text-xs">{props.timeStamp}</p>
+                <div className="flex gap-3">
+                    <button onClick={editNote}>
+                        <AiOutlineEdit className="text-lg" />
+                    </button>
+                    <button
+                        className=" bottom-1 text-sm text-red-500"
+                        onClick={handleClick}
+                    >
+                        <MdDelete className="text-lg text-delete-color" />
+                    </button>
+                </div>
             </div>
         </div>
     )
