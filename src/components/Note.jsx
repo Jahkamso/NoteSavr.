@@ -41,7 +41,6 @@ function Note(props) {
                     return {
                         title: editTitle,
                         content: editContent,
-                        timeStamp: timeStamp,
                     }
                 }
                 return note
