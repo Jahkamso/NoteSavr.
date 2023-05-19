@@ -7,6 +7,40 @@ import {
 } from 'react-icons/bs'
 
 function Note(props) {
+    // Array of months
+    let months = [
+        'January',
+        'February',
+        'March',
+        'April',
+        'May',
+        'June',
+        'July',
+        'August',
+        'September',
+        'October',
+        'November',
+        'December',
+    ]
+
+    // Get the current date
+    let currentDate = new Date()
+
+    let currentTime = `${currentDate.getHours()}:${currentDate.getMinutes()}`
+
+    // Get the current month index (0-11)
+    let currentMonthIndex = currentDate.getMonth()
+    let currentDay = currentDate.getDay()
+    let currentYear = currentDate.getFullYear()
+
+    // Get the current month name
+    let timeStamp = `${currentTime}, ${months[currentMonthIndex]} ${currentDay}, ${currentYear}`
+
+    const [note, setNote] = useState({
+        title: '',
+        content: '',
+        timeStamp: '',
+    })
 
     const [isCompleted, setIsCompleted] = useState(false)
     const [editNoteId, setEditNoteId] = useState(false)
@@ -41,6 +75,7 @@ function Note(props) {
                     return {
                         title: editTitle,
                         content: editContent,
+                        timeStamp: timeStamp
                     }
                 }
                 return note
