@@ -37,7 +37,7 @@ function App(props) {
     return (
         <div
             style={{ backgroundColor: toggleMode ? '' : '#191825'}}
-            className="h-full relative bg-dark-white"
+            className="h-full min-h-screen relative bg-dark-white"
         >
             <Heading toggleModes={toggleModes} toggleMode={toggleMode} />
             <CreateArea toggleMode={toggleMode} onAdd={addNote} />
