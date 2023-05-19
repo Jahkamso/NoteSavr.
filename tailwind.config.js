@@ -16,16 +16,16 @@ export default {
         fontFamily: {
             McLaren: ['McLaren', 'cursive'],
         },
-        colors: {
-            'delete-color': '#E96479',
-            white: '#fff',
-            'dark-white': '#eee',
-            'header-color': '#159895', // #088395
-            'p-color': '#ccc',
-        },
         extend: {
             gridTemplateColumns: {
                 'notes-grid': 'repeat(auto-fill, 270px)',
+            },
+            colors: {
+                'delete-color': '#E96479',
+                'white': '#fff',
+                'dark-white': '#eee',
+                'header-color': '#159895', // #088395
+                'p-color': '#ccc',
             },
         },
     },

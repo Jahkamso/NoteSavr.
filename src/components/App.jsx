@@ -5,6 +5,7 @@ import Note from './Note'
 import CreateArea from './CreateArea'
 
 function App(props) {
+
     const notesFromLocalStorage = JSON.parse(
         localStorage.getItem('notes') || '[]'
     )
@@ -28,7 +29,7 @@ function App(props) {
     }
 
     return (
-        <>
+        <div className='h-screen w-full relative bg-dark-white'>
             <Heading />
             <CreateArea onAdd={addNote} />
             <section className="relative grid gap-8 place-content-center py-6 px-2.5 mb-4 tablet:grid-cols-notes-grid  laptop:mx-auto desktop:ml-auto mr-auto mobile:grid-cols-1 mx-2">
@@ -50,7 +51,7 @@ function App(props) {
                 })}
             </section>
             <Footer />
-        </>
+        </div>
     )
 }
 
