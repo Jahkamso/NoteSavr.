@@ -60,7 +60,7 @@ function App(props) {
                     )
                 })}
             </section>
-            <Footer />
+            <Footer toggleMode={toggleMode} />
         </div>
     )
 }
