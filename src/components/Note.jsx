@@ -91,20 +91,27 @@ function Note(props) {
         <div
             style={{
                 opacity: isCompleted ? '0.6' : null,
+                backgroundColor: props.toggleMode ? '' : '#212A3E',
+                color: props.toggleMode ? '' : 'whitesmoke',
             }}
             className="relative pt-5 bg-white pb-2.5 px-5 shadow-inner rounded-sm overflow-hidden mobile:px-7"
         >
             {editNoteId ? (
                 <input
+                    style={{
+                        backgroundColor: props.toggleMode ? '' : '#212A3E',
+                        color: props.toggleMode ? '' : '#ECE8DD',
+                    }}
                     onChange={handleEdit}
                     value={editTitle}
-                    className="border-none outline-none"
+                    className="border-none outline-none font-medium"
                 ></input>
             ) : (
                 <h1
                     style={{
                         textDecoration: isCompleted ? 'line-through' : 'none',
                         display: editNoteId ? 'none' : 'flex',
+                        color: props.toggleMode ? '' : '#ECE8DD',
                     }}
                     name="title"
                     className="text-1xl mb-2 bg-transparent overflow-hidden break-words break-all font-medium"
@@ -115,9 +122,13 @@ function Note(props) {
 
             {editNoteId ? (
                 <textarea
+                    style={{
+                        backgroundColor: props.toggleMode ? '' : '#212A3E',
+                        color: props.toggleMode ? '#ECE8DD' : '',
+                    }}
                     onChange={handleContent}
                     value={editContent}
-                    className="border-none outline-none resize-none"
+                    className="border-none outline-none resize-none font-medium"
                 ></textarea>
             ) : (
                 <p
@@ -140,7 +151,12 @@ function Note(props) {
                 )}
             </button>
             <div className="flex justify-between items-center gap-2">
-                <p className="text-xs">{props.timeStamp}</p>
+                <p
+                    style={{ color: props.toggleMode ? '' : '#474E68' }}
+                    className="text-xs"
+                >
+                    {props.timeStamp}
+                </p>
                 <div className="flex gap-3">
                     <button onClick={editNote}>
                         <AiOutlineEdit className="text-lg" />

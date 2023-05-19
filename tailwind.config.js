@@ -22,10 +22,12 @@ export default {
             },
             colors: {
                 'delete-color': '#E96479',
-                'white': '#fff',
+                white: '#fff',
                 'dark-white': '#eee',
                 'header-color': '#159895', // #088395
                 'p-color': '#ccc',
+                'darkmode-color': '#191825',
+                'darkmode-grey': '#394867',
             },
         },
     },
